@@ -1,0 +1,124 @@
+<!-- 
+File: index.html
+GUI Assignment: Update the dynamic multiplication table to use JQuery Validation plug-in
+Jayendra Rathore, Jayendra_Rathore@student.uml.edu 
+Date Created: June 21, 2023
+Description: This is the html for the multiplcation table, it hold the form and table tags for where the table would go. It uses bootstrap 3.4.1 because that's the version I was familiar with
+
+Sources for HTML, CSS, and JS page: I just used W3 schools for learning JQuery code and looked at the chapters provided in the pdf 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <!-- Below adds bootstrap 3.4.1-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    
+</head>
+<body>
+    <!-- Jumbotron for main header-->
+    <div class="container jumbotron">
+        <h1 class="text-center">Custom Multiplication Table</h1>
+    </div>
+    <br>
+    <div class="container" id="rules">
+        <!-- Rules header and unordered list with each list item is a rule-->
+        <h2 id="rulesHeader">Rules for the table:</h2>
+        <ul id="rulesList">
+            <li>Only accepts numbers between -50 and 50</li>
+            <li>Numbers only (decimals will be converted to integers)</li>
+            <li>Start value <b>MUST</b> be lower than or equal to the end value</li>
+        </ul>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="container text-capitalize">
+        <form class="form" id="myForm">
+            <!-- This div will be used to write an error message in JS -->
+            <div class="errMsg text-danger text-uppercase lead"></div>
+
+            <!-- Form that accepts 4 values -->
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <div class="form-group">
+                        <label for="xStart">Horizontal start point:</label>
+                        <input type="text" id="xStart" name="xStart" class="form-control selector" value="0"> 
+                        <div id="xStart_slider"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <div class="form-group">
+                        <label for="xEnd">Horizontal end point:</label>
+                        <input type="text" id="xEnd" name="xEnd" class="form-control selector" value="0">
+                        <div id="xEnd_slider"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <div class="form-group">
+                        <label for="yStart">Vertical start point:</label>
+                        <input type="text" id="yStart" name="yStart" class="form-control selector" value="0">
+                        <div id="yStart_slider"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <div class="form-group">
+                        <label for="yEnd">Vertical end point:</label>
+                        <input type="text" id="yEnd" name="yEnd" class="form-control selector" value="0">
+                        <div id="yEnd_slider"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- button that submits form to create table -->
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <!-- <button type="submit" class="btn btn-info btn-block text-uppercase" id="confirm">Confirm Selection</button> -->
+                    <input class="btn btn-info btn-block text-uppercase" id="confirm" type="submit" value="Save Table">
+                </div>
+            </div>
+        </form>
+        
+
+        <hr>
+
+        <div class="container tableContainer">
+            <!-- multiplication table that will be filled by JS -->
+            <table class="table table-bordered" id="multTable">
+
+            </table>
+        </div>
+
+        <hr><br><br>
+
+        <!-- for the tabs-->
+        <div class="container">
+            <h2>Saved Tables:</h2>
+            <div id="tabs" class="tableContainer"><ul></ul></div>
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

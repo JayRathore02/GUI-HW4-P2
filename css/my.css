@@ -1,0 +1,135 @@
+/*
+File: my.css
+GUI Assignment: Update the dynamic multiplication table to use JQuery Tabs
+Jayendra Rathore, Jayendra_Rathore@student.uml.edu 
+Date Created: June 21, 2023
+Description: This is the css for the multiplcation table, it has the styling for various elements
+*/
+
+/* sets jumbotron background and text color */
+.jumbotron {
+    background-color: aqua;
+    color: navy;
+}
+
+/* sets up background color for the whole page */
+body {
+    background-color: antiquewhite;
+}
+
+/* makes the horizontal line more visible */
+hr {
+    border: solid;
+    border-width: 1px;
+}
+
+/* makes borders between each table element, centers them, and makes the background color aqua */
+tr,
+td,
+table {
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    text-align: center;
+    background-color: aqua;
+}
+
+/* div id for the table and set the maximum height and width, white centering the table, also sets up the table to be scrollable */
+.tableContainer {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    max-width: 80%;
+    max-height: 500px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* targets first row and first column and makes their text bold, changes their background color to white, positon sticky 
+to always show both while scrolling so a user knows what the multiplier and multiplicand are
+*/
+table td:first-child,
+table tr:first-child td {
+    background-color: white;
+    font-weight: bold;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+/* sets padding around each table element */
+table td,
+table tr {
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+/* Makes the table scrollable */
+table {
+    margin-top: 25px;
+    display: inline-block;
+    overflow: auto;
+    border-collapse: collapse;
+    max-width: 100%;
+}
+
+/* helps with making the table scrollabe */
+td div {
+    margin-top: -20px;
+    position: absolute;
+}
+
+/* makes every odd column a beigh background color*/
+td:nth-child(odd) {
+    background-color: beige;
+}
+
+/* makes the validation messages bold, red, and italic to pop out. Also makes every letter lowercase */
+.error {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: lowercase;
+}
+
+/* makes the first letter uppercase */
+.error:nth-child(0),
+.error:nth-child(1),
+.error:nth-child(2),
+.error:nth-child(3) {
+    text-transform: capitalize;
+}
+
+/* sets up tabs so that they're vertical and*/
+.tab-content {
+    overflow: auto;
+    height: fit-content;
+    padding: 0px;
+    max-width: 100%;
+    max-height: 500px;
+}
+
+/* The css areas below make the tabs vertical */
+#tabs {
+    display: flex;
+}
+
+#tabs ul {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 75%;
+}
+
+#tabs ul li {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#tabs ul li a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
